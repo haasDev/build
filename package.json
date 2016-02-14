@@ -1,0 +1,28 @@
+{
+  "name": "wikipedia_viewer",
+  "version": "1.0.0",
+  "description": "Will allow a user to enter a search term and see a list of results returned by the wikipedia api which they can click on to visit that page on wikipedia.  Utilizes Angular and the wikipedia api.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haasDev/wikipedia_viewer.git"
+  },
+  "author": "Tyler Haas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haasDev/wikipedia_viewer/issues"
+  },
+  "homepage": "https://github.com/haasDev/wikipedia_viewer#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.2",
+    "path": "^0.12.7"
+  }
+}
