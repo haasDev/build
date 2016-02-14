@@ -20,7 +20,6 @@ var settings = {
 
 gulp.task('uglify', function(){
 	return gulp.src('src/js/*.js')
-		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
 });
 
