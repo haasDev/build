@@ -1,2 +1,9 @@
-# wikipedia_viewer
-Will allow a user to enter a search term and see a list of results returned by the wikipedia api which they can click on to visit that page on wikipedia.  Utilizes Angular and the wikipedia api.
+# Gulp Build
+
+This is my current build process using gulp for all the mini projects I work on. Includes basic scaffolding.
+
+# Usage
+
+1. Open up your terminal
+2. Run `npm install`
+3. Run `gulp`
