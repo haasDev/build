@@ -8,7 +8,8 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	browserSync = require('browser-sync'),
 	uglify = require('gulp-uglify'),
-	babel = require('gulp-babel');
+	babel = require('gulp-babel'),
+	react = require('gulp-react');
 
 /*
 * Change directories here
@@ -19,13 +20,19 @@ var settings = {
 	cssDir: 'dist/css'
 };
 
+gulp.task('transform', function () {
+	return gulp.src('src/js/*.jsx')
+		.pipe(react({harmony: false, es6module: true}))
+		.pipe(gulp.dest('dist/js'))
+})
+
 gulp.task('babel', function () {
-	return gulp.src('src/js/*.js').
+	return gulp.src('dist/js/*.js').
 		pipe(gulp.dest('dist/js'));
 })
 
 gulp.task('uglify', function(){
-	return gulp.src('src/js/*.js')
+	return gulp.src('dist/js/*.js')
 		.pipe(gulp.dest('dist/js'));
 });
 
@@ -83,7 +90,8 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
 	gulp.watch(settings.sassDir + '/**', ['sass']);
 	gulp.watch(['*.jade', '**/*.jade'], ['jade-rebuild']);
-	gulp.watch('src/js/*.js',['babel', 'uglify']);
+	gulp.watch('src/js/*.jsx',['transform']);
+	gulp.watch('dist/js/*.js', ['babel', 'uglify']);
 });
 
 /**
