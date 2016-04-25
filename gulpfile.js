@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 	prefix = require('gulp-autoprefixer'),
 	sass = require('gulp-sass'),
 	browserSync = require('browser-sync'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	babel = require('gulp-babel');
 
 /*
 * Change directories here
@@ -17,6 +18,11 @@ var settings = {
 	sassDir: 'src/scss',
 	cssDir: 'dist/css'
 };
+
+gulp.task('babel', function () {
+	return gulp.src('src/js/*.js').
+		pipe(gulp.dest('dist/js'));
+})
 
 gulp.task('uglify', function(){
 	return gulp.src('src/js/*.js')
@@ -77,7 +83,7 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
 	gulp.watch(settings.sassDir + '/**', ['sass']);
 	gulp.watch(['*.jade', '**/*.jade'], ['jade-rebuild']);
-	gulp.watch('src/js/*.js',['uglify']);
+	gulp.watch('src/js/*.js',['babel', 'uglify']);
 });
 
 /**
